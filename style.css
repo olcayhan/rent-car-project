@@ -3,17 +3,38 @@
     margin: 0;
     text-decoration: none;
     scroll-behavior: smooth;
+    width: 100;
 }
 
 header {
     display: flex;
-    background-color: aquamarine;
-    justify-content: center;
-    padding: 20px;
+    background-color: #569DAA;
+    justify-content: space-around;
+    padding: 20px 0;
 }
 
 header h1 {
     margin: auto 0;
+    color: #B9EDDD;
+    font-size: 50px;
+    font-weight: 900;
+}
+
+header img {
+    width: 200px;
+}
+
+header input {
+    width: 200px;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #F9D949;
+    border-radius: 20px;
+    margin: auto 0;
+}
+
+header input:focus {
+    border: 2px solid aqua;
 }
 
 nav {
@@ -43,10 +64,18 @@ main {
     background-color: bisque;
 }
 
-main section{
+main section {
     height: 600px;
 }
 
 footer {
     background-color: beige;
+}
+
+@media only screen and (max-width: 600px) {
+    header {
+        flex-direction: column;
+        margin: 0 auto;
+        align-items: center;
+    }
 }
