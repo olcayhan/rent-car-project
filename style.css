@@ -4,6 +4,7 @@
     text-decoration: none;
     scroll-behavior: smooth;
     width: 100;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 header {
@@ -24,21 +25,21 @@ header img {
     width: 200px;
 }
 
-header input {
-    width: 200px;
-    height: 40px;
+header .login {
     padding: 10px;
-    border: 1px solid #F9D949;
     border-radius: 20px;
     margin: auto 0;
+    text-decoration: none;
+    color: #B9EDDD;
+    font-size: 20px;
 }
 
-header input:focus {
-    border: 2px solid aqua;
+header .login:hover {
+    color: aliceblue;
 }
 
 nav {
-    background-color: beige;
+    background-color: #B7B7B7;
 }
 
 nav ul {
@@ -56,17 +57,59 @@ nav ul li {
 }
 
 nav ul li a {
-    color: black;
+    color: #fff;
 
 }
 
 main {
-    background-color: bisque;
+    background-color: #F2E3DB;
 }
 
 main section {
     height: 600px;
+    padding: 50px;
+
 }
+
+main .arrows {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+main .carousel {
+    width: 50%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+main .carousel img {
+    width: auto;
+    height: 100%;
+
+}
+
+main .home-section .left-arrow {
+    width: 50px;
+    height: 50px;
+    margin: auto 0;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 20px;
+}
+
+main .home-section .right-arrow {
+    width: 50px;
+    height: 50px;
+    margin: auto 0;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 20px;
+
+}
+
 
 footer {
     background-color: beige;
@@ -78,4 +121,13 @@ footer {
         margin: 0 auto;
         align-items: center;
     }
+
+    main .carousel {
+        width: 100%;
+    }
+
+    main .carousel img {
+        width: 100%;
+    }
+
 }
