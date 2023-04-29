@@ -1,133 +1,111 @@
 * {
-    padding: 0;
-    margin: 0;
-    text-decoration: none;
-    scroll-behavior: smooth;
-    width: 100;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  scroll-behavior: smooth;
+  width: 100;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 header {
-    display: flex;
-    background-color: #569DAA;
-    justify-content: space-around;
-    padding: 20px 0;
+  display: flex;
+  background-color: #569daa;
+  justify-content: space-around;
+  padding: 20px 0;
 }
 
 header h1 {
-    margin: auto 0;
-    color: #B9EDDD;
-    font-size: 50px;
-    font-weight: 900;
+  margin: auto 0;
+  color: #b9eddd;
+  font-size: 50px;
+  font-weight: 900;
 }
 
 header img {
-    width: 200px;
+  width: 200px;
 }
 
 header .login {
-    padding: 10px;
-    border-radius: 20px;
-    margin: auto 0;
-    text-decoration: none;
-    color: #B9EDDD;
-    font-size: 20px;
+  padding: 10px;
+  border-radius: 20px;
+  margin: auto 0;
+  text-decoration: none;
+  color: #b9eddd;
+  font-size: 20px;
 }
 
 header .login:hover {
-    color: aliceblue;
+  color: aliceblue;
 }
 
 nav {
-    background-color: #B7B7B7;
+  background-color: #b7b7b7;
 }
 
 nav ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 nav ul li {
-    margin: 10px;
-    list-style-type: none;
-    font-size: 18px;
-    font-weight: 600;
-
+  margin: 10px;
+  list-style-type: none;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 nav ul li a {
-    color: #fff;
-
+  color: #fff;
 }
 
 main {
-    background-color: #F2E3DB;
+  background-color: #f2e3db;
 }
 
 main section {
-    height: 600px;
-    padding: 50px;
-
+  height: 100vh;
+  padding: 50px;
 }
 
-main .arrows {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+main .home-section {
+  background-image: url("/assets/home-image.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
-main .carousel {
-    width: 50%;
-    height: 100%;
-    margin: 0 auto;
+main .home-section h1 {
+  font-size: 50px;
+  color: #fff;
+  text-align: center;
 }
 
-main .carousel img {
-    width: auto;
-    height: 100%;
-
+main .home-section p {
+  margin-top: 30px;
+  font-size: 30px;
+  color: #fff;
+  text-align: center;
 }
 
-main .home-section .left-arrow {
-    width: 50px;
-    height: 50px;
-    margin: auto 0;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    margin: 20px;
-}
-
-main .home-section .right-arrow {
-    width: 50px;
-    height: 50px;
-    margin: auto 0;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    margin: 20px;
-
+main .home-section .form-menu {
+  background-color: #ddd;
+  width: 80%;
+  height: 12rem;
+  margin: 50px auto;
+  border-radius: 5px;
 }
 
 
 footer {
-    background-color: beige;
+  background-color: beige;
 }
 
 @media only screen and (max-width: 600px) {
-    header {
-        flex-direction: column;
-        margin: 0 auto;
-        align-items: center;
-    }
-
-    main .carousel {
-        width: 100%;
-    }
-
-    main .carousel img {
-        width: 100%;
-    }
-
+  header {
+    flex-direction: column;
+    margin: 0 auto;
+    align-items: center;
+  }
 }

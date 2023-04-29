@@ -1,52 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>Rent a Car</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="style.css" rel="stylesheet">
-</head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
 
-<body>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+
+  <body>
     <!-- Header -->
     <header>
-        <a href="/"><img src="./assets/car-header.png" alt="car-png"></a>
-        <h1>Rent a Car</h1>
-        <a href="/login" class="login">Giriş Yap / Kayıt Ol</a>
+      <a href="/"><img src="./assets/car-header.png" alt="car-png" /></a>
+      <h1>Rent a Car</h1>
+      <a href="/login" class="login">Giriş Yap / Kayıt Ol</a>
     </header>
     <!-- Navbar -->
     <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#contact">Contact Us</a></li>
-        </ul>
+      <ul>
+        <li><a href="#home">Ana Menu</a></li>
+        <li><a href="#about">Hakkımızda</a></li>
+        <li><a href="#contact">İletişim</a></li>
+      </ul>
     </nav>
     <!-- Main -->
     <main>
-        <!-- Home Section -->
-        <section id="home" class="home-section">
-            <div class="carousel">
-                <img class="car-image" src="" alt="">
-            </div>
-            <div class="arrows">
-                <button class="left-arrow"> left </button>
-                <button class="right-arrow"> right </button>
-            </div>
-        </section>
-        <!-- About Section -->
-        <section id="about">About us</section>
-        <!-- Contact Section -->
-        <section id="contact">Contact us</section>
+      <!-- Home Section -->
+      <section id="home" class="home-section">
+        <h1>Search. Compare. Hire.</h1>
+        <p>Car rental at the best prices</p>
+
+        <div class="form-menu row p-3">
+          <div class="form-group my-auto ml-3 col-lg-3">
+            <input
+              type="text"
+              placeholder="Kiralamak istediğiniz yeri giriniz"
+              class="form-control"
+            />
+          </div>
+
+          <div class="form-group my-auto ml-3 col-lg-3">
+            <input
+              type="text"
+              placeholder="Araç modelini giriniz"
+              class="form-control"
+            />
+          </div>
+
+          <div class="form-group my-auto ml-3 col-lg-3">
+            <input
+              type="date"
+              placeholder="Araç modelini giriniz"
+              class="form-control date"
+            />
+          </div>
+
+          <button class="btn btn-success my-auto ml-3 col-lg-3">Ara</button>
+        </div>
+      </section>
+      <!-- About Section -->
+      <section id="about">About us</section>
+      <!-- Contact Section -->
+      <section id="contact">Contact us</section>
     </main>
     <!-- Footer -->
     <footer>
-        <h1>Footer</h1>
-        <p>Footer Section</p>
+      <h1>Footer</h1>
+      <p>Footer Section</p>
     </footer>
 
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>
