@@ -10,6 +10,11 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
 
     <link href="style.css" rel="stylesheet" />
   </head>
@@ -38,31 +43,36 @@
 
         <div class="form-menu row p-3">
           <div class="form-group my-auto ml-3 col-lg-3">
-            <input
-              type="text"
-              placeholder="Kiralamak istediğiniz yeri giriniz"
-              class="form-control"
-            />
+            <div class="dropdown">
+              <button
+                class="form-control dropdown-toggle"
+                id="city-text"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Şehir Seçiniz
+              </button>
+              <ul
+                class="dropdown-menu"
+                aria-labelledby="city-text"
+                id="city-select"
+              ></ul>
+            </div>
           </div>
 
           <div class="form-group my-auto ml-3 col-lg-3">
-            <input
-              type="text"
-              placeholder="Araç modelini giriniz"
-              class="form-control"
-            />
+            <input type="date" class="form-control" id="date-begin" />
           </div>
-
           <div class="form-group my-auto ml-3 col-lg-3">
-            <input
-              type="date"
-              placeholder="Araç modelini giriniz"
-              class="form-control date"
-            />
+            <input type="date" class="form-control" id="date-finish" />
           </div>
 
-          <button class="btn btn-success my-auto ml-3 col-lg-3">Ara</button>
+          <button class="btn btn-success my-auto ml-3 col-lg-3" id="search">
+            Ara
+          </button>
         </div>
+
+        <div class="all-cars"></div>
       </section>
       <!-- About Section -->
       <section id="about">About us</section>
