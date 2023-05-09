@@ -127,6 +127,20 @@ main .home-section .form-menu {
   margin: 30px auto;
 }
 
+.login-main {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 400px;
+  height: 400px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f9a828;
+  border-radius: 30px;
+}
+
 footer p {
   font-size: 12px;
   margin: 0;
