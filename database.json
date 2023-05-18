@@ -1,0 +1,82 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "city": "New York",
+      "cars": [
+        {
+          "id": 1,
+          "name": "Nissan Juke",
+          "img": "/assets/cars/nissan-juke.png",
+          "year": 2002,
+          "model": "Suv",
+          "price": 100
+        },
+        {
+          "id": 2,
+          "name": "Ford Courier",
+          "img": "/assets/cars/ford-courier.png",
+          "year": 2015,
+          "model": "Wagon",
+          "price": 230
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "city": "Istanbul",
+      "cars": [
+        {
+          "id": 3,
+          "name": "Toyota Auris",
+          "img": "/assets/cars/toyota-auris.png",
+          "year": 2018,
+          "model": "Compact Car",
+          "price": 260
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "city": "London",
+      "cars": [
+        {
+          "id": 4,
+          "name": "Opel Astra",
+          "img": "/assets/cars/opel-astra.png",
+          "model": "Compact Car",
+          "year": 2017,
+          "price": 270
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "city": "Bursa",
+      "cars": [
+        {
+          "id": 5,
+          "name": "Peugeot 208",
+          "img": "/assets/cars/peugeot-208.png",
+          "model": "Economy Car",
+          "year": 2016,
+          "price": 300
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "city": "Letonya",
+      "cars": [
+        {
+          "id": 6,
+          "name": "BMW 1 Series",
+          "img": "/assets/cars/bmw-1series.png",
+          "model": "Compact Elite Car",
+          "year": 2018,
+          "price": 850
+        }
+      ]
+    }
+  ]
+}
