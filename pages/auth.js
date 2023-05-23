@@ -60,7 +60,7 @@ const validateUser = () => {
     let checkUser = users.find((user) => user.email === email)
 
 
-    if (checkUser.length === 0) {
+    if (!checkUser) {
         error.innerHTML = "Kullanıcı Bulunamadı"
         return;
     }
@@ -70,7 +70,7 @@ const validateUser = () => {
         return;
     }
     alert("giriş başarılı")
-    localStorage.setItem("users", JSON.stringify(checkUser))
+    localStorage.setItem("userLogin", JSON.stringify(checkUser))
     location.href = "/"
 }
 

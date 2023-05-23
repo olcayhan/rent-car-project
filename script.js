@@ -6,6 +6,9 @@ var searchBtn = document.getElementById('search')
 let database;
 
 
+
+
+
 const fetchData = async () => {
     try {
         let res = await fetch("./database.json");
@@ -48,7 +51,7 @@ const getData = (data) => {
     })
 }
 
-const searchCars = () =>{
+const searchCars = () => {
     document.querySelector(".all-cars").innerHTML = ""
 
     let chosen = database.find((item) => item.city == cityChosen.innerHTML)
@@ -78,8 +81,16 @@ const searchCars = () =>{
     })
 }
 
+const checkAuth = () => {
+    const loginBtn = document.querySelector(".login");
+    console.log(loginBtn);
+    if (localStorage.getItem("userLogin")) loginBtn.innerHTML = "Çıkış Yap";
+    loginBtn.addEventListener("click", () => {
+        localStorage.removeItem("userLogin");
+    })
+}
 
-
+checkAuth();
 
 fetchData().then((data) => getData(data))
 
