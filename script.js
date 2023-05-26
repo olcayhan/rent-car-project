@@ -75,19 +75,38 @@ const searchCars = () => {
                 <p>Price : ${item.price}₺/day<p>
                 <p>Total price: ${item.price * rentDay}₺ / ${rentDay} day</p>
             </div>
-            <button class="btn btn-outline-dark col-lg-1">Rent</button>
+            <button class="rentBtn btn btn-outline-dark col-lg-1">Rent</button>
         </div >
     `
     })
+
+
+    let rentBtn = document.getElementsByClassName("rentBtn");
+    console.log(rentBtn)
+
+    for (let i = 0; i < rentBtn.length; i++) {
+        rentBtn[i].onclick = rentCar;
+    }
+
+
 }
 
 const checkAuth = () => {
     const loginBtn = document.querySelector(".login");
-    console.log(loginBtn);
     if (localStorage.getItem("userLogin")) loginBtn.innerHTML = "Çıkış Yap";
     loginBtn.addEventListener("click", () => {
         localStorage.removeItem("userLogin");
     })
+}
+
+
+const rentCar = (e) => {
+    if (!localStorage.getItem("userLogin")) {
+        location.href = "/pages/login.html"
+        return;
+    }
+    e.target.innerHTML = "Rented"
+
 }
 
 checkAuth();
