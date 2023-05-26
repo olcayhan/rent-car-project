@@ -1,7 +1,8 @@
 
 const registerNewUser = () => {
 
-    let users = []
+    let users = JSON.parse(localStorage.getItem("users")) || []
+    console.log(users)
     let username = document.getElementById('username').value;
     let email = document.getElementById('email').value;
     let password = document.getElementById('password').value;
@@ -9,20 +10,25 @@ const registerNewUser = () => {
     let error = document.getElementById('error');
 
     if (username.length === 0) {
+        error.style.display = 'block';
         error.innerHTML = "Kullanıcı adı boş olamaz"
         return;
     }
     if (email.length === 0) {
+        error.style.display = 'block';
         error.innerHTML = "E-mail boş olamaz"
         return;
     }
     if (password.length === 0) {
+        error.style.display = 'block';
         error.innerHTML = "Parola boş olamaz"
         return;
     }
 
-    let checkUser = users.filter((user) => user.email === email)
-    if (checkUser.length !== 0) {
+    let checkUser = users.find((user) => user.email === email)
+
+    if (checkUser) {
+        error.style.display = 'block';
         error.innerHTML = "Bu Email Zaten Kullanılıyor"
         return;
     }
@@ -48,10 +54,12 @@ const validateUser = () => {
 
 
     if (email.length === 0) {
+        error.style.display = 'block';
         error.innerHTML = "E-mail boş olamaz"
         return;
     }
     if (password.length === 0) {
+        error.style.display = 'block';
         error.innerHTML = "Parola boş olamaz"
         return;
     }
@@ -61,11 +69,13 @@ const validateUser = () => {
 
 
     if (!checkUser) {
+        error.style.display = 'block';
         error.innerHTML = "Kullanıcı Bulunamadı"
         return;
     }
     console.log(checkUser.password, password)
     if (checkUser.password !== password) {
+        error.style.display = 'block';
         error.innerHTML = "Parola Yanlış"
         return;
     }
