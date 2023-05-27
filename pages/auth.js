@@ -1,3 +1,5 @@
+if (localStorage.getItem("userLogin")) location.href = "/";
+
 
 const registerNewUser = () => {
 
@@ -84,5 +86,11 @@ const validateUser = () => {
     location.href = "/"
 }
 
+
+const removeError = () => {
+    let error = document.getElementById('error');
+    error.style.display = 'none';
+
+}
 
 
