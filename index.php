@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -20,23 +24,29 @@
   </head>
 
   <body>
+
     <!-- Header -->
     <header>
       <a href="/"><img src="./assets/car-header.png" alt="car-png" /></a>
       <h1>Rent a Car</h1>
-      <a href="/pages/login.html" class="login">Giriş Yap / Kayıt Ol</a>
+      <?php
+          if (isset($_SESSION['email'])) {
+            echo '<a href="/pages/logout.php" class="login">Çıkış Yap</a>';
+          }else{
+            echo '<a href="/pages/login.php" class="login">Giriş Yap / Kayıt Ol</a>';
+          }
+       ?>
+
     </header>
 
     <!-- Navbar -->
     <nav>
-      <div class="nav-main">
         <ul>
           <li><a>Home</a></li>
           <li><a>About us</a></li>
           <li><a>Services</a></li>
           <li><a>Contact us</a></li>
         </ul>
-      </div>
     </nav>
 
     <!-- Main -->

@@ -5,10 +5,6 @@ var searchBtn = document.getElementById('search')
 
 let database;
 
-
-
-
-
 const fetchData = async () => {
     try {
         let res = await fetch("./database.json");
