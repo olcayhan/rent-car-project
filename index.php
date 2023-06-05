@@ -24,13 +24,13 @@ session_start();
   </head>
 
   <body>
-
+    <?php include("./connection.php"); ?>
     <!-- Header -->
     <header>
       <a href="/"><img src="./assets/car-header.png" alt="car-png" /></a>
       <h1>Rent a Car</h1>
       <?php
-          if (isset($_SESSION['email'])) {
+          if (isset($_SESSION['user'])) {
             echo '<a href="/pages/logout.php" class="login">Çıkış Yap</a>';
           }else{
             echo '<a href="/pages/login.php" class="login">Giriş Yap / Kayıt Ol</a>';
@@ -59,39 +59,89 @@ session_start();
         <div class="form-menu row p-3 container">
           <div class="form-group align-self-center py-3 ml-3 col-lg-3">
             <p class="text-center">Şehir</p>
-            <div class="dropdown">
-              <button
-                class="form-control dropdown-toggle"
-                id="city-text"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Şehir Seçiniz
-              </button>
-              <ul
-                class="dropdown-menu"
-                aria-labelledby="city-text"
-                id="city-select"
-              ></ul>
-            </div>
-          </div>
+            <form method="POST" action="<?php
+                          echo $_SERVER['PHP_SELF']
+                         ?>" >
+                <select name="city" id="city-select" class="w-100 border-none py-1">
+                  <?php 
+                        $sql = "SELECT DISTINCT city FROM cardb";
+                        $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
+                        while($row = $result->fetch_assoc()){
+                          echo '
+                          <option class="py-2 btn w-100" >
+                              '.$row["city"] .'
+                          </option>
+                          ';
+                        }
+                      }
+                      ?>
+                </select>
+           </div>
 
-          <div class="form-group align-self-center ml-3 py-3 col-lg-3">
-            <p class="text-center">Alış Tarihi</p>
-            <input type="date" class="form-control" id="date-begin" />
-          </div>
+              <div class="form-group align-self-center ml-3 py-3 col-lg-3">
+                <p class="text-center">Alış Tarihi</p>
+                <input type="date" class="form-control" name="date-begin" id="date-begin" />
+              </div>
 
-          <div class="form-group align-self-center ml-3 py-3 col-lg-3">
-            <p class="text-center">Teslim Tarihi</p>
-            <input type="date" class="form-control" id="date-finish" />
-          </div>
+              <div class="form-group align-self-center ml-3 py-3 col-lg-3">
+                <p class="text-center">Teslim Tarihi</p>
+                <input type="date" class="form-control" id="date-finish"  name="date-finish" />
+              </div>
 
-          <div class="align-self-center ml-3 py-3 col-lg-3">
-            <p class="text-center">Seçili Tarihler Arasında Ara</p>
-            <button class="btn btn-success w-100" id="search" onclick="searchCars()">Ara</button>
-          </div>
+              <div class="align-self-center ml-3 py-3 col-lg-3">
+                <p class="text-center">Seçili Tarihler Arasında Ara</p>
+                <button class="btn btn-success w-100" id="search" type="submit">Ara</button>
+              </div>
 
-          <div class="all-cars"></div>
+            </form>
+          
+        
+          <div class="all-cars">
+            <?php 
+              
+              if($_SERVER["REQUEST_METHOD"] == "POST"){
+                                
+                $city = $_POST['city'];
+                $sql = "SELECT * FROM cardb WHERE city = '$city' ";
+                $result = $conn->query($sql);
+
+                $datebegin = $_POST['date-begin'];
+                $datefinish= $_POST['date-finish'];
+
+                $rentDay = (strtotime($datefinish)-strtotime($datebegin)) / (3600 * 24);
+             if(isset($_SESSION["user"])){
+
+                if ($result->num_rows > 0) {
+              while($row = $result->fetch_assoc()){
+                echo '
+                  <div class="car row" >
+                  <a class="col-lg-3" href="/pages/cars.php?carId='.$row["id"].'">
+                  <img  src=' . $row["img"] . ' alt=""/>
+                  </a>
+                    <div class="col-lg">
+                        <h3>' . $row["name"] . '</h3>
+                        <p>Year : ' . $row["year"] . '</p>
+                        <p>Model : ' . $row["model"] . '</p>
+                    </div>
+                    <div class="col-lg">
+                        <p>Price : ' . $row["price"] . '₺/day<p>
+                        <p>Total price: ' . $row["price"] * $rentDay . '₺ / ' . $rentDay. ' day</p>
+                    </div>
+                    <button class="rentBtn btn btn-outline-dark col-lg-1">Kirala</button>
+                </div >
+                ';
+                }
+              }
+            }
+            else{
+              header("Location: /pages/login.php"); 
+            }
+          }
+
+            ?>
+          </div>
+          </div>
         </div>
       </section>
       <!-- About Section -->

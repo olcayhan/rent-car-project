@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -35,33 +32,27 @@
      
     <div class="login-container">
       <div class="login-main">
-        <p
-          id="register-error"
-          class="text-center text-danger py-2"
-        >
+
             <?php
           if($_SERVER["REQUEST_METHOD"] == "POST"){
             $username = $_POST["username"];
             $email = $_POST["email"];
             $password = $_POST["password"];
             $id = rand(100000,999999);
-
-
-
             $sql = "INSERT INTO users (id, name, email, password) VALUES ('$id','$username','$email','$password')";
 
             if(empty($username) || empty($email) || empty($password)){
-              echo "Bu kısımlar boş olamaz";
-            } else {
+              echo '<p id="error" class="text-center text-white bg-danger py-2">
+                      Bu kısımlar boş olamaz
+                    </p>';;
+            } 
+            else {
               if ($conn->query($sql) === TRUE) {
-                echo "User Created Successfully";
-                sleep(2);
                 header("Location: /pages/login.php"); 
               }
             }
           }
-        ?>
-    </p>        
+        ?>     
         <form action="<?php
           echo $_SERVER['PHP_SELF']
         ?>" method="post">

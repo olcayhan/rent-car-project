@@ -25,7 +25,16 @@ session_start();
   </head>
   <body>
   <?php include("../connection.php"); ?>
-  <?php
+    <header>
+      <a href="/"><img src="../assets/car-header.png" alt="car-png" /></a>
+      <h1>Rent a Car</h1>
+      <a href="/pages/login.php" class="login">Giriş Yap / Kayıt Ol</a>
+    </header>
+
+    <div class="login-container">
+      <div class="login-main">
+        
+        <?php
 
           if($_SERVER["REQUEST_METHOD"] == "POST"){
             $email = $_POST["email"];
@@ -36,33 +45,23 @@ session_start();
             $result = $conn->query($sql);
 
             if(empty($email) || empty($password)){
-              echo "Bu kısımlar boş olamaz";
+              echo '<p id="error" class="text-center text-white bg-danger py-2">
+                          Bu kısımlar boş olamaz
+                    </p>';
             } else {
                 if($result->fetch_assoc() > 0){
-                $_SESSION["email"] = $email;
-                header("Location: /index.php"); 
+                     $_SESSION["user"] = $email;
+                     header("Location: /index.php"); 
                 }
                 else{
-                  echo "Kullanıcı bulunamadı";
+                  echo '<p id="error" class="text-center text-white bg-danger py-2">
+                            Kullanıcı bulunamadı
+                      </p>';
                 }
             }
           }
         ?>
-    <header>
-      <a href="/"><img src="../assets/car-header.png" alt="car-png" /></a>
-      <h1>Rent a Car</h1>
-      <a href="/pages/login.php" class="login">Giriş Yap / Kayıt Ol</a>
-    </header>
 
-    <div class="login-container">
-      <div class="login-main">
-        <p
-          id="error"
-          class="text-center text-white bg-danger py-2"
-          style="display: none"
-        >
-       
-        </p>
        
         <form action="<?php
          echo $_SERVER['PHP_SELF']
