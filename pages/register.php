@@ -40,11 +40,16 @@
             $password = $_POST["password"];
             $id = rand(100000,999999);
             $sql = "INSERT INTO users (id, name, email, password) VALUES ('$id','$username','$email','$password')";
-
+            $sql2 = "SELECT * FROM users WHERE email = '$email'";
+            $result = $conn->query($sql2);
             if(empty($username) || empty($email) || empty($password)){
               echo '<p id="error" class="text-center text-white bg-danger py-2">
                       Bu kısımlar boş olamaz
-                    </p>';;
+                    </p>';
+            } else if( $result->fetch_assoc() > 0){
+              echo '<p id="error" class="text-center text-white bg-danger py-2">
+                     Bu Email zaten kullanılıyor
+                </p>';
             } 
             else {
               if ($conn->query($sql) === TRUE) {

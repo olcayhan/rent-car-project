@@ -41,7 +41,7 @@ session_start();
 
     <!-- Navbar -->
     <nav>
-        <ul>
+        <ul class="gap-3">
           <li><a>Home</a></li>
           <li><a>About us</a></li>
           <li><a>Services</a></li>
