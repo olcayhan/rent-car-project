@@ -102,6 +102,5 @@ session_start();
         </p>
       </div>
     </div>
-    <script src="auth.js"></script>
   </body>
 </html>

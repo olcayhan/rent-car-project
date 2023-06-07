@@ -7,6 +7,10 @@
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
 }
+
+html, body{
+  height: 100%;
+}
 header {
   display: flex;
   background-color: #ebebe3;
@@ -157,6 +161,11 @@ main .home-section .form-menu {
 footer p {
   font-size: 12px;
   margin: 0;
+}
+
+.login-container{
+  background-image:url("./assets/home-image.jpg");
+  background-size: cover;
 }
 
 @media only screen and (max-width: 600px) {
